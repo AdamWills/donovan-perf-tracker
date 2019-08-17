@@ -26,7 +26,6 @@ admin.initializeApp({
   databaseURL: 'https://donovan-performance-dashboard.firebaseio.com',
 });
 
-
 const db = admin.firestore();
 const wpt = new WebPageTest('www.webpagetest.org', wptApiKey);
 
@@ -70,6 +69,7 @@ const createRecord = data => ({
 });
 
 const spinner = ora('Running Web Page Test').start();
+
 runTest(website)
   .then((id) => {
     spinner.succeed();
@@ -78,7 +78,7 @@ runTest(website)
   .then((data) => {
     const record = createRecord(data);
     const dbSpinner = ora('Writing to db').start();
-    writeToFirestore(record)
+    return writeToFirestore(record)
       .then(() => {
         dbSpinner.succeed();
       });
