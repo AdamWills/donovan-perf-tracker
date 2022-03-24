@@ -16,7 +16,7 @@
   "dependencies": {
     "chalk": "^2.4.2",
     "firebase-admin": "^8.2.0",
-    "minimist": "^1.2.0",
+    "minimist": "^1.2.6",
     "ora": "^3.4.0",
     "ramda": "^0.26.1",
     "webpagetest": "^0.3.9"
